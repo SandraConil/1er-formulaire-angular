@@ -1,0 +1,51 @@
+<form #form="ngForm" (ngSubmit)="onSubmnit()">
+    <fieldset>
+        <label for="nom">Nom :</label>
+        <input id="nom" type="text" placeholder="votre nom" name="nom" #nom="ngModel" [(ngModel)]="model.nom"
+            required minlength="3" maxlength="15">
+    </fieldset>
+
+    <!-- mettre les messages d'erreurs quand le formulaire est soumis on doit mettre une nouvelle div avec submitted -->
+    <div class="div" *ngIf="form.submitted">
+        <!-- mes messages d'erreurs -->
+    <div *ngIf="nom.errors">
+        <span *ngIf="nom.errors['required']">Le titre est requis</span>
+        <span *ngIf="nom.errors['minlength']">La longueur minimale doit être supérieure à 3</span>
+        <span *ngIf="nom.errors['maxlength']">La longueur maximale doit être inférieure à 15</span>
+      </div>
+    </div>
+
+    <fieldset>
+        <label for="nom">Prénom:</label>
+        <input id="prenom" type="text" placeholder="votre prénom" name="prenom" #prenom="ngModel"
+            [(ngModel)]="model.prenom" required minlength="3" maxlength="15">
+    </fieldset>
+
+    <fieldset>
+        <label for="email">Email :</label>
+        <input id="email" type="email" placeholder="votre E-mail" name="email" #email="ngModel"
+            [(ngModel)]="model.email" required email>
+    </fieldset>
+    <div class="div" *ngIf="form.submitted">
+    <div *ngIf="email.errors">
+    <span *ngIf="email.errors['required']">Le champ quantité est requis</span>
+  </div>
+</div>
+
+    <fieldset>
+        <label for="password">Mot de passe :</label>
+        <input id="password" type="password" placeholder="votre mot de passe" name="password" #password="ngModel"
+            [(ngModel)]="model.password" required minlength="6">
+    </fieldset>
+    <div class="div" *ngIf="form.submitted">
+    <div *ngIf="password.errors">
+        <span *ngIf="password.errors['required']">Le champ email est requis</span>
+        <span *ngIf="password.errors['email']">L'adresse email doit être valide</span>
+      </div>
+    </div>
+
+    <div>
+        <button class="restaurer" type="reset">Restaurer</button>
+        <button class="envoyer" type="submit">Envoyer</button>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    height: 30px;
+    text-align: center;  
+}
+
+fieldset {
+    background-color:rgb(214, 7, 128);
+}
+
+form input {
+    background-color:rgb(231, 99, 143) ;
+    color: azure;
+}
+
+.restaurer, .envoyer{
+    margin: 10px;
+    background: linear-gradient(rgb(232, 15, 131), pink);
+    border-radius: 15px 30px;
+    width: 150px;
+    height: 30px;
+    transition: 1s ease-out;
+}
+
+
+.restaurer:hover {
+    background-color: red;
+}
+
+.envoyer:hover {
+    background-color: aquamarine;
+}
+
